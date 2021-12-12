@@ -36,7 +36,7 @@ Figure 3: Field profiles of current-carrying cylindrical and cuboid nanowires. F
 
 
 ## Citation
-Gartside, J.C., Jung, S.G., Yoo, S.Y. et al. Current-controlled nanomagnetic writing for reconfigurable magnonic crystals. Commun Phys 3, 219 (2020). https://doi.org/10.1038/s42005-020-00487-y
+Gartside, J.C., Jung, S.G., Yoo, S.Y. et al. Current-controlled nanomagnetic writing for reconfigurable magnonic crystals. Commun Phys **3**, 219 (2020). https://doi.org/10.1038/s42005-020-00487-y
 
 
 ## 🔗 Links
