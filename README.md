@@ -1,6 +1,4 @@
 # Current-Controlled Nanomagnetic Writing for Reconfigurable Magnonic Crystals (CCNW4RMC)
-Official implementation of "Current-controlled nanomagnetic writing for reconfigurable magnonic crystals" (2020)
-
 ----
 
 <p align="center">
