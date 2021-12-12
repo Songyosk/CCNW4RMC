@@ -4,7 +4,7 @@
 <p align="center">
 <b>All source code and images are associated with the paper: <br />
 <i>"Current-controlled nanomagnetic writing for reconfigurable magnonic crystals" (2020)</i>,<br />
-Nature Commun. Phy. <br />
+Nature Communications Physics <br />
 (Accepted for Publication)</b><br />
 <a href="https://www.nature.com/articles/s42005-020-00487-y">Paper HTML</a>
 </p>
