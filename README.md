@@ -39,8 +39,11 @@ Gartside, J.C., Jung, S.G., Yoo, S.Y. et al. Current-controlled nanomagnetic wri
 
 
 ## 🔗 Links
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=S.G.Jung&logoColor=white)](https://www.linkedin.com/in/son-gyo-jung-655537135/)
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=S.Y.Yoo&logoColor=white)](https://www.linkedin.com/in/seung-yoo-a31428138/)
+S. G. Jung
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/son-gyo-jung-655537135/)
+
+S. Y. Yoo
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/seung-yoo-a31428138/)
 
 
 ## License
