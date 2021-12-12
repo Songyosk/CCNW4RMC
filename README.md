@@ -4,7 +4,7 @@
 <p align="center">
 <b>All source code and images are associated with the paper: <br />
 <i>"Current-controlled nanomagnetic writing for reconfigurable magnonic crystals" (2020)</i>,<br />
-Nature Comm. Phy. <br />
+Nature Commun. Phy. <br />
 (Accepted for Publication)</b><br />
 <a href="https://www.nature.com/articles/s42005-020-00487-y">Paper HTML</a>
 </p>
@@ -30,3 +30,19 @@ Figure 2: Close-proximity and fully selective reversal modes. (a)–(c) Close-pr
 ![MW1](_figures_/approximate.png)
 
 Figure 3: Field profiles of current-carrying cylindrical and cuboid nanowires. Field profile experienced by a nanoisland that is positioned h = 10 nm below an infinitely long cylinder and cuboid. There is a small discrepancy of 0.15 × 10<sup>4</sup> Am<sup>-1</sup> around x = 0, which can be minimized by adjusting the value of the current density.
+
+
+
+
+## Citation
+Gartside, J.C., Jung, S.G., Yoo, S.Y. et al. Current-controlled nanomagnetic writing for reconfigurable magnonic crystals. Commun Phys 3, 219 (2020). https://doi.org/10.1038/s42005-020-00487-y
+
+
+## 🔗 Links
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/son-gyo-jung-655537135/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://https://www.linkedin.com/in/seung-yoo-a31428138/)
+
+
+## License
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://choosealicense.com/licenses/mit/)
+
