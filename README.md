@@ -59,25 +59,26 @@ https://user-images.githubusercontent.com/56391325/145803371-2e65dfc7-1e37-4fd7-
   
 (iv) Fully-selective reversal combining 'skip' and 'write' events to prepare a 'single gate' state (script name: doubleselectv42; link - https://youtu.be/x4G3z80CK_g)
 
-https://user-images.githubusercontent.com/56391325/145830821-e66a2ee1-a825-45de-8a3e-6a6655ea9c37.mp4
-
 Description: Reversal method employing varying current-density pulses to achieve combination of 'skip' and 'write' c-DW traversal events in a four-island system.  Nanowire is in h = 20 nm fullyselective mode. Starting from a uniformly-magnetised initial state, a combination of a single 'skip' followed by three 'write'  pulses are used to prepare an arbitrary magnetisation state. The final state corresponds to a 'single gate' case, gated at the right-hand island.
 
+https://user-images.githubusercontent.com/56391325/145830821-e66a2ee1-a825-45de-8a3e-6a6655ea9c37.mp4
 
 
 
 
-(v) Oersted field switching magnetisation of nanoislands (script name: Smoking gun no2; link - https://youtu.be/-BJTMOu3GCc)
+
+
+(v) Non-selective Oersted field reversal of both nanoislands in a two-island system (script name: Smoking gun no2; link - https://youtu.be/-BJTMOu3GCc)
+
+Description: Both nanoislands in a two nanoisland system are simultaneously reversed by the Oersted field caused by current passing through the nanowire. This  demonstrates the distinction between the c-DW reversal method described here and conventional, non-selective Oersted field stripline techniques.
 
 https://user-images.githubusercontent.com/56391325/145808734-cb319182-2d70-4fdb-b693-8326c4510d04.mp4
 
-Description:  Non-selective  Oersted  field  reversal  of  both  nanoislands  in  a  two-island  system Both  nanoislands  in  a  two  nanoisland  system  are  simultaneously  reversed  by the  Oersted field  caused  by current  passing  through  the  nanowire.  This  demonstrates  the  distinction between  the  cDW  reversal  method  described  here  and  conventional,  non-selective  Oersted field  stripline  techniques.\\ 
 
 
+(vi) Selective reversal of single nanoisland in two-island system c.f. (v) (script name: Smoking gun no1; link - https://youtu.be/dsGObVhVJUc)
 
-
-
-(vi) Switching magnetisation of the nanoislands (script name: Smoking gun no1; link - https://youtu.be/dsGObVhVJUc)
+Description: Right-hand nanoisland in a two nanoisland system is magnetically reversed while left-hand nanoisland is not reversed as the c-DW does not traverse  it, demonstrating the local selectivity of the reversal method.
 
 https://user-images.githubusercontent.com/56391325/145808997-87fd262c-a5d1-4d19-afc9-e251e9a5cd4c.mp4
 
