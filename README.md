@@ -31,21 +31,29 @@ The simulations are developed using mumax<sup>3</sup>, a GPU-accelerated microma
 
 Below are the simulations that were generated using the scripts herein.
   
-(i) Magnetic reversal method (script name: smallv4_2; link - https://youtu.be/FiKxKtBjk7k):
+(i) Selective reversal of single nanoisland in two-island system (script name: smallv4_2; link - https://youtu.be/FiKxKtBjk7k)
+
+Description: Right-hand nanoisland in a two-nanoisland system is magnetically reversed while left-hand nanoisland is not reversed as the c-DW does not traverse it, demonstrating the local selectivity of the reversal method. 
 
 https://user-images.githubusercontent.com/56391325/145804860-54de1143-a633-48ad-b37b-a8657a8fae2d.mp4
   
  
  
-(ii) Selective writing - Reversing all the magnetisation states of the nanoislands (script name: Switchv11 final; link - https://youtu.be/F19qnYPWQKM)
+(ii) Fully-selective reversal returning arbitrarily magnetised four-island system to uniform state, then fully-reversed state (script name: Switchv11 final; link - https://youtu.be/F19qnYPWQKM)
+
+Description: Combination of two 'skip' followed by two 'write' events returns abitrarily magnetised system to a uniform state. The drive-current polarity is then  reversed such that the c-DW motion is right-to-left, and a further combination of two 'skip' and two 'write' events are employed to prepare a state which is a  total magnetic reversal of the initial arbitrary magnetisation state. Nanowire is in h = 20 nm fully-selective mode.
 
 https://user-images.githubusercontent.com/56391325/145732471-5ed2b45b-24d0-443d-9188-ded5e096215c.mp4
 
   
   
-(iii) Selective writing - Skipping pass all the nanoislands (script name: Skipv12; link - https://youtu.be/4WkLE20AFM4)
+(iii) c-DW skipping across four-island system (script name: Skipv12; link - https://youtu.be/4WkLE20AFM4)
+
+Description: Four 'skip' events are combined to move the c-DW across a four island system without reversing any island magnetisation, demonstrating the freedom to  reposition the c-DW throughout an array.
 
 https://user-images.githubusercontent.com/56391325/145803371-2e65dfc7-1e37-4fd7-9318-22d4ce2deddd.mp4
+
+
 
 
   
