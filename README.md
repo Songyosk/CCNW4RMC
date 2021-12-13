@@ -31,13 +31,13 @@ The simulations are developed using mumax<sup>3</sup>, a GPU-accelerated microma
 
 Below are the simulations that were generated using the scripts herein.
   
-(i) Reversal process 
+(i) Magnetic reversal method:
 
 https://user-images.githubusercontent.com/56391325/145804860-54de1143-a633-48ad-b37b-a8657a8fae2d.mp4
 
-
 Script name: smallv4_2 (https://youtu.be/FiKxKtBjk7k)
   
+ 
  
 (ii) Selective writing - Reversing all the magnetisation states of the nanoislands
 
@@ -63,7 +63,22 @@ Script name: doubleselectv42 (https://youtu.be/x4G3z80CK_g)
 
 
 
-- Run file
+(v) Oersted field switching magnetisation of nanoislands
+
+https://user-images.githubusercontent.com/56391325/145808734-cb319182-2d70-4fdb-b693-8326c4510d04.mp4
+
+Script name: Smoking gun no2 (https://youtu.be/-BJTMOu3GCc)
+
+
+
+(vi) Switching magnetisation of the nanoislands
+
+https://user-images.githubusercontent.com/56391325/145808997-87fd262c-a5d1-4d19-afc9-e251e9a5cd4c.mp4
+
+Script name: Smoking gun no1 (https://youtu.be/dsGObVhVJUc)
+
+
+
 
 
 ## Figures
