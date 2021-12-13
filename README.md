@@ -31,51 +31,39 @@ The simulations are developed using mumax<sup>3</sup>, a GPU-accelerated microma
 
 Below are the simulations that were generated using the scripts herein.
   
-(i) Magnetic reversal method (script name: smallv4_2):
+(i) Magnetic reversal method (script name: smallv4_2; link - https://youtu.be/FiKxKtBjk7k):
 
 https://user-images.githubusercontent.com/56391325/145804860-54de1143-a633-48ad-b37b-a8657a8fae2d.mp4
-
-(Link: https://youtu.be/FiKxKtBjk7k)
   
  
  
-(ii) Selective writing - Reversing all the magnetisation states of the nanoislands (script name: Switchv11 final)
+(ii) Selective writing - Reversing all the magnetisation states of the nanoislands (script name: Switchv11 final; link - https://youtu.be/F19qnYPWQKM)
 
 https://user-images.githubusercontent.com/56391325/145732471-5ed2b45b-24d0-443d-9188-ded5e096215c.mp4
 
-(Link: https://youtu.be/F19qnYPWQKM)
-
   
   
-(iii) Selective writing - Skipping pass all the nanoislands (script name: Skipv12)
+(iii) Selective writing - Skipping pass all the nanoislands (script name: Skipv12; link - https://youtu.be/4WkLE20AFM4)
 
 https://user-images.githubusercontent.com/56391325/145803371-2e65dfc7-1e37-4fd7-9318-22d4ce2deddd.mp4
 
-(Link: https://youtu.be/4WkLE20AFM4)
-  
 
   
-(iv) Nanomagnetic Writing via Current-driven Domain Walls - selective writing with current variations (script name: doubleselectv42)
+(iv) Nanomagnetic Writing via Current-driven Domain Walls - selective writing with current variations (script name: doubleselectv42; link - https://youtu.be/x4G3z80CK_g)
 
 https://user-images.githubusercontent.com/56391325/145806780-c8e76c2f-3576-4a32-9fab-d9fb262bbb84.mp4
 
-(Link: https://youtu.be/x4G3z80CK_g)
 
 
-
-(v) Oersted field switching magnetisation of nanoislands (script name: Smoking gun no2)
+(v) Oersted field switching magnetisation of nanoislands (script name: Smoking gun no2; link - https://youtu.be/-BJTMOu3GCc)
 
 https://user-images.githubusercontent.com/56391325/145808734-cb319182-2d70-4fdb-b693-8326c4510d04.mp4
 
-(Link: https://youtu.be/-BJTMOu3GCc)
 
 
-
-(vi) Switching magnetisation of the nanoislands (script name: Smoking gun no1)
+(vi) Switching magnetisation of the nanoislands (script name: Smoking gun no1; link - https://youtu.be/dsGObVhVJUc)
 
 https://user-images.githubusercontent.com/56391325/145808997-87fd262c-a5d1-4d19-afc9-e251e9a5cd4c.mp4
-
-(Link: https://youtu.be/dsGObVhVJUc)
 
 
 
