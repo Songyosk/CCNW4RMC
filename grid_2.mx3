@@ -1,0 +1,93 @@
+Nx:= 1000
+Ny:= 150 			
+Nz:= 26
+setGridSize(Nx, Ny, Nz)
+setCellSize(4e-9, 4e-9, 4e-9)
+
+
+Aex     = 13e-12
+Xi      = 0.1
+alpha   = 0.02 
+
+distance:= 40
+xoffset:= 20+37.5
+nanoislandlength := 400
+
+angle:= 360
+ydim:=40e-9
+zdim:=40e-9
+translation := -(22.5 + 25)*1e-9
+ytranslation:= (nanoislandlength + 40)*1e-9
+
+bigR:= 20e-9			//radius of cylinder or our cuboid
+currentdensity := 5*1e12
+
+timestep := 100e-12
+totaltime := 4000e-12
+
+//Bxangle:= 1 //in degrees
+//Bmag := 0.005 //Tesla
+
+//current carrying wire
+wireDW:=cuboid(4000e-9,ydim,zdim).transl(0,0,0)
+
+//nanoisland circular ends
+semicircle1:= cylinder(75e-9, 5e-9).transl(0, ((nanoislandlength-75)*0.5)*1e-9, 0)
+semicircle2:= cylinder(75e-9, 5e-9).transl(0,-((nanoislandlength-75)*0.5)*1e-9, 0)
+nanoisland:= cuboid(75e-9, (nanoislandlength-75)*1e-9, 5e-9).add(semicircle1).add(semicircle2)
+
+
+
+
+
+setGeom(wireDW)
+saveas(geom, "WireCross") 
+
+
+
+defRegion(1,wireDW)
+defRegion(2, cuboid(40e-9,ydim,zdim).transl(-1980e-9,0,0))
+defRegion(3, cuboid(40e-9,ydim,zdim).transl(1980e-9,0,0))
+
+
+
+
+
+m.setRegion(1, twodomain(1, 0, 0, 0, 0, -1, -1, 0, 0))
+m.setRegion(2, uniform(1,0,0))
+m.setRegion(3, uniform(-1,0,0))
+
+
+
+
+
+
+
+Msat.setRegion(1, 800e3)
+Msat.setRegion(2, 800e3)
+Msat.setRegion(3, 800e3)
+
+
+
+frozenspins.setRegion(2,1)
+frozenspins.setRegion(3,1)
+
+
+saveas(m, "geometry2")
+
+
+// Remove surface charges from left (mx=1) and right (mx=-1) sides to mimic infinitely long wire. We have to specify the region (0) at the boundaries.
+BoundaryRegion := 1
+MagLeft        := 1
+MagRight       := -1
+ext_rmSurfaceCharge(BoundaryRegion, MagLeft, MagRight)
+
+saveas(m, "Init")
+saveas(B_ext, "afterSC")
+
+
+Minimize()
+
+
+autosave(m, 100e-12)
+Run(400e-12)
