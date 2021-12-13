@@ -125,7 +125,7 @@ Figure 3: Field profiles of current-carrying cylindrical and cuboid nanowires. F
 
 
 
-## File type
+## Files
 
 <ins>ovf</ins>
 
