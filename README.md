@@ -30,22 +30,32 @@ The simulations are developed using mumax<sup>3<sup>, a GPU-accelerated micromag
 
 
 Below are the simulations that were generated using the scripts herein.
+  
+() Reversal process 
 
-(i) 
+https://user-images.githubusercontent.com/56391325/145804860-54de1143-a633-48ad-b37b-a8657a8fae2d.mp4
+
+
+  smallv4_2.mp4 (https://youtu.be/FiKxKtBjk7k)
+  
+ 
+(i) Selective writing - Reversing all the magnetisation states of the nanoislands
 
 https://user-images.githubusercontent.com/56391325/145732471-5ed2b45b-24d0-443d-9188-ded5e096215c.mp4
 
   Switchv11 final (https://youtu.be/F19qnYPWQKM)
 
   
-(ii)
   
+(ii) Selective writing - Skipping pass all the nanoislands
+
+https://user-images.githubusercontent.com/56391325/145803371-2e65dfc7-1e37-4fd7-9318-22d4ce2deddd.mp4
+
+Skipv12  (https://youtu.be/4WkLE20AFM4)
   
 
   
-  
-  - codes
-
+(iii) 
 
 
 
