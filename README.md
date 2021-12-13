@@ -22,18 +22,29 @@ Figure 1: (a) Representation of the ferromagnetic domain wall-carrying ‘contro
 
 
 
-- codes 
-- mumax website
 
 
 ## Simulations
-Below are the simulations that were generated using the code herein.
+
+The simulations are developed using mumax<sup>3<sup>, a GPU-accelerated micromagnetic simulation program developed at the DyNaMat group of Prof. Van Waeyenberge at Ghent University. This is availabe at https://mumax.github.io/. In addition, we used the Object Oriented MicroMagnetic Framework (OOMMF) to generate two-dimensional simulations, some of which are presented as figures in the paper. See more detail at https://math.nist.gov/oommf/.
+
+
+Below are the simulations that were generated using the scripts herein.
 
 (i) 
 
 https://user-images.githubusercontent.com/56391325/145732471-5ed2b45b-24d0-443d-9188-ded5e096215c.mp4
 
+  Switchv11 final (https://youtu.be/F19qnYPWQKM)
 
+  
+(ii)
+  
+  
+
+  
+  
+  - codes
 
 
 
