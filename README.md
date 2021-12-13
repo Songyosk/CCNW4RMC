@@ -21,8 +21,6 @@ Below is the schematic of the magnetic reversal method:
 Figure 1: (a) Representation of the ferromagnetic domain wall-carrying ‘control’ nanowire and ‘bit’ nanoisland, separated by a non-magnetic gap of height h. (b)–(d) Time-evolution series of the magnetic reversal process in two-nanoisland system. Both nanoislands are initially magnetized with 𝑀 = −𝑦̂  (b) before the current-driven ‘control’ domain wall (c-DW) traverses the right-hand nanoisland, inducing magnetization reversal (c), leaving it magnetized 𝑀 = +𝑦̂, whereas the left-hand nanoisland remains unswitched (d). It is noteworthy that the internal domain wall structure in (c) and (d) is slightly distorted by the drive-current; (b) shows the static, relaxed domain wall state. (e) Detailed time-evolution series of the reversal process in a single 400 × 75 × 5 nm<sup>3</sup> nanoisland. The dynamic c-DW is represented by the white circle traversing the nanoisland midpoint, moving with 𝑣<sub>c−DW</sub> = +𝑥̂. t = 0 s is defined when the c-DW begins moving from its origin, 112 nm to the nanoisland’s left. The partially formed contorted nanoisland domain wall is highlighted in t = 0.6 ns by the dashed grey line, with the partially formed straight island domain wall highlighted by longer grey dashes in t = 0.65 ns. Topological defects are labelled with their winding numbers.
 
 
-<br />
-
 
 ## Simulations
 
@@ -93,8 +91,6 @@ Description: Right-hand nanoisland in a two nanoisland system is magnetically re
 https://user-images.githubusercontent.com/56391325/145808997-87fd262c-a5d1-4d19-afc9-e251e9a5cd4c.mp4
 
 
-<br />
-<br />
 
 
 ## Reversal modes
@@ -103,7 +99,6 @@ Two reversal modes were studied: (a) close-proximity, and (b) fully selective. S
 ![MW2](_figures_/magnetic_writing_2.png)
 Figure 2: Close-proximity and fully selective reversal modes. (a)–(c) Close-proximity reversal mode. (d) Fully selective reversal. (a) With Oersted-field H<sub>Oe</sub> antiparallel to the initial nanoisland magnetization HOe aids reversal, driving the low- and high-energy nanoisland domain walls (i-DWs) to opposite nanoisland ends and achieving successful switching. (b) With H<sub>Oe</sub> aligned to the initial nanoisland magnetization, the reversal process is hindered, H<sub>Oe</sub> drives the low- and high-energy i-DWs into the same nanoisland end, resulting in failed switching. (c) Four-island array initialized (‘before’ panel) with second and third islands in 𝑀 = +𝑦̂  state, and first and fourth in 𝑀 = −𝑦̂  state. Control domain wall (c-DW) is then driven across the array such that 𝐇<sub>Oe</sub> = +𝑦̂, driving successful reversal of 𝑀 = −𝑦̂  islands (as described in (a)) and failed reversal of 𝑀 = +𝑦̂  islands (as in (b)). (d) c-DW begins to the left of two nanoislands (t = 0). It is driven over the first nanoisland by a J = 2.0 × 10<sup>12</sup> A/m<sup>2</sup> ‘skip’ current pulse, leaving the nanoisland unswitched as H<sub>Oe</sub> + H<sub>DW</sub>  < H<sub>N</sub>, the nucleation field. The c-DW is then driven over the second nanoisland with a J = 5.5 × 10<sup>12</sup> A/m<sup>2</sup> ‘write’ pulse, switching the nanoisland magnetization as H<sub>Oe</sub> + H<sub>DW</sub> ≥ H<sub>N</sub>.
 
-<br />
 
 ## Modelling Approximation
 In our simulations, we have approximated the current-carrying wire as an infinitely-long cylindrical nanowire, as suppose to a cuboid nanowire. The rationale for such an approximation is due to the simplicity in modelling the magnetic field, which exhibit a circular pattern around a cylindrical nanowire. We have justified this approximation by computing the profile of the magnetic field strength experienced by the nanoislands, as shown below. 
