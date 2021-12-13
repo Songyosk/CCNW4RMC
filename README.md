@@ -11,7 +11,10 @@ Nature Communications Physics <br />
 
 ----
 
+## Introduction
 
+![MW1](_figures_/magnetic_writing_1.png)
+Figure 1: Schematic of the magnetic reversal method. (a) Representation of the ferromagnetic domain wall-carrying ‘control’ nanowire and ‘bit’ nanoisland, separated by a non-magnetic gap of height h. (b)–(d) Time-evolution series of the magnetic reversal process in two-nanoisland system. Both nanoislands are initially magnetized with 𝑀 = −𝑦̂  (b) before the current-driven ‘control’ domain wall (c-DW) traverses the right-hand nanoisland, inducing magnetization reversal (c), leaving it magnetized 𝑀 = +𝑦̂, whereas the left-hand nanoisland remains unswitched (d). It is noteworthy that the internal domain wall structure in (c) and (d) is slightly distorted by the drive-current; (b) shows the static, relaxed domain wall state. (e) Detailed time-evolution series of the reversal process in a single 400 × 75 × 5 nm<sup>3</sup> nanoisland. The dynamic c-DW is represented by the white circle traversing the nanoisland midpoint, moving with 𝑣<sub>c−DW</sub> = +𝑥̂. t = 0 s is defined when the c-DW begins moving from its origin, 112 nm to the nanoisland’s left. The partially formed contorted nanoisland domain wall is highlighted in t = 0.6 ns by the dashed grey line, with the partially formed straight island domain wall highlighted by longer grey dashes in t = 0.65 ns. Topological defects are labelled with their winding numbers.
 
 
 
@@ -34,8 +37,7 @@ https://user-images.githubusercontent.com/56391325/145732471-5ed2b45b-24d0-443d-
 
 ## Figures
 Below are the figures as presented in the paper:
-![MW1](_figures_/magnetic_writing_1.png)
-Figure 1: Schematic of the magnetic reversal method. (a) Representation of the ferromagnetic domain wall-carrying ‘control’ nanowire and ‘bit’ nanoisland, separated by a non-magnetic gap of height h. (b)–(d) Time-evolution series of the magnetic reversal process in two-nanoisland system. Both nanoislands are initially magnetized with 𝑀 = −𝑦̂  (b) before the current-driven ‘control’ domain wall (c-DW) traverses the right-hand nanoisland, inducing magnetization reversal (c), leaving it magnetized 𝑀 = +𝑦̂, whereas the left-hand nanoisland remains unswitched (d). It is noteworthy that the internal domain wall structure in (c) and (d) is slightly distorted by the drive-current; (b) shows the static, relaxed domain wall state. (e) Detailed time-evolution series of the reversal process in a single 400 × 75 × 5 nm<sup>3</sup> nanoisland. The dynamic c-DW is represented by the white circle traversing the nanoisland midpoint, moving with 𝑣<sub>c−DW</sub> = +𝑥̂. t = 0 s is defined when the c-DW begins moving from its origin, 112 nm to the nanoisland’s left. The partially formed contorted nanoisland domain wall is highlighted in t = 0.6 ns by the dashed grey line, with the partially formed straight island domain wall highlighted by longer grey dashes in t = 0.65 ns. Topological defects are labelled with their winding numbers.
+
 
 
 ![MW1](_figures_/magnetic_writing_2.png)
