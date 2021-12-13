@@ -27,7 +27,9 @@ Figure 1: (a) Representation of the ferromagnetic domain wall-carrying ‘contro
 ## Simulations
 
 The simulations are developed using mumax<sup>3</sup>, a GPU-accelerated micromagnetic simulation program developed at the DyNaMat group of Prof. Van Waeyenberge at Ghent University. This is availabe at https://mumax.github.io/. In addition, the Object Oriented MicroMagnetic Framework (OOMMF) was used to generate two-dimensional simulations, some of which are presented as figures in the paper. See more detail at https://math.nist.gov/oommf/. Below are the simulations that were generated using the scripts herein.
-  
+ 
+<br />
+<br />
 
 (i) Selective reversal of single nanoisland in two-island system (script name: smallv4_2; link - https://youtu.be/FiKxKtBjk7k)
 
@@ -36,6 +38,7 @@ Description: Right-hand nanoisland in a two-nanoisland system is magnetically re
 https://user-images.githubusercontent.com/56391325/145804860-54de1143-a633-48ad-b37b-a8657a8fae2d.mp4
   
   
+ <br />
  <br />
  
  
@@ -47,6 +50,7 @@ https://user-images.githubusercontent.com/56391325/145732471-5ed2b45b-24d0-443d-
 
 
 <br />
+<br />
   
   
 (iii) c-DW skipping across four-island system (script name: Skipv12; link - https://youtu.be/4WkLE20AFM4)
@@ -56,6 +60,7 @@ Description: Four 'skip' events are combined to move the c-DW across a four isla
 https://user-images.githubusercontent.com/56391325/145803371-2e65dfc7-1e37-4fd7-9318-22d4ce2deddd.mp4
 
 
+<br />
 <br />
 
   
@@ -67,6 +72,7 @@ https://user-images.githubusercontent.com/56391325/145830821-e66a2ee1-a825-45de-
 
 
 <br />
+<br />
 
 
 (v) Non-selective Oersted field reversal of both nanoislands in a two-island system (script name: Smoking gun no2; link - https://youtu.be/-BJTMOu3GCc)
@@ -77,6 +83,7 @@ https://user-images.githubusercontent.com/56391325/145808734-cb319182-2d70-4fdb-
 
 
 <br />
+<br />
 
 
 (vi) Selective reversal of single nanoisland in two-island system c.f. (v) (script name: Smoking gun no1; link - https://youtu.be/dsGObVhVJUc)
@@ -86,6 +93,7 @@ Description: Right-hand nanoisland in a two nanoisland system is magnetically re
 https://user-images.githubusercontent.com/56391325/145808997-87fd262c-a5d1-4d19-afc9-e251e9a5cd4c.mp4
 
 
+<br />
 <br />
 
 
