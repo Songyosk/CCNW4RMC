@@ -13,6 +13,12 @@ Nature Communications Physics <br />
 
 Explain:
 - what the file is
+'init_grid_cDW.ovf' and '' files are in Open Virtualization Format that is used to initialise the magnetisation state of the current-carrying wire in addition to the Oersted field and the stray field of c-DW. 
+
+This ovf file is loaded to the mx3 file to avoid the minimisation step, reducing the run time and eliminating the randomness associated with the positioning of the c-DW while the system's energy is minimised in the presence of the nanoislands, which can alter the orientation and position of the c-DW before the polarised current is applied. 
+
+Simulations 2 to 4 uses this technique where init_grid_cDW is used in 2 and 3, and '' in 4.
+
 
 - why we use it
 - how we use it
