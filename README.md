@@ -103,6 +103,7 @@ Two reversal modes were studied: (a) close-proximity, and (b) fully selective. S
 ![MW2](_figures_/magnetic_writing_2.png)
 Figure 2: Close-proximity and fully selective reversal modes. (a)–(c) Close-proximity reversal mode. (d) Fully selective reversal. (a) With Oersted-field H<sub>Oe</sub> antiparallel to the initial nanoisland magnetization HOe aids reversal, driving the low- and high-energy nanoisland domain walls (i-DWs) to opposite nanoisland ends and achieving successful switching. (b) With H<sub>Oe</sub> aligned to the initial nanoisland magnetization, the reversal process is hindered, H<sub>Oe</sub> drives the low- and high-energy i-DWs into the same nanoisland end, resulting in failed switching. (c) Four-island array initialized (‘before’ panel) with second and third islands in 𝑀 = +𝑦̂  state, and first and fourth in 𝑀 = −𝑦̂  state. Control domain wall (c-DW) is then driven across the array such that 𝐇<sub>Oe</sub> = +𝑦̂, driving successful reversal of 𝑀 = −𝑦̂  islands (as described in (a)) and failed reversal of 𝑀 = +𝑦̂  islands (as in (b)). (d) c-DW begins to the left of two nanoislands (t = 0). It is driven over the first nanoisland by a J = 2.0 × 10<sup>12</sup> A/m<sup>2</sup> ‘skip’ current pulse, leaving the nanoisland unswitched as H<sub>Oe</sub> + H<sub>DW</sub>  < H<sub>N</sub>, the nucleation field. The c-DW is then driven over the second nanoisland with a J = 5.5 × 10<sup>12</sup> A/m<sup>2</sup> ‘write’ pulse, switching the nanoisland magnetization as H<sub>Oe</sub> + H<sub>DW</sub> ≥ H<sub>N</sub>.
 
+<br />
 
 ## Modelling Approximation
 In our simulations, we have approximated the current-carrying wire as an infinitely-long cylindrical nanowire, as suppose to a cuboid nanowire. The rationale for such an approximation is due to the simplicity in modelling the magnetic field, which exhibit a circular pattern around a cylindrical nanowire. We have justified this approximation by computing the profile of the magnetic field strength experienced by the nanoislands, as shown below. 
@@ -111,15 +112,18 @@ In our simulations, we have approximated the current-carrying wire as an infinit
 
 Figure 3: Field profiles of current-carrying cylindrical and cuboid nanowires. Field profile experienced by a nanoisland that is positioned h = 10 nm below an infinitely long cylinder and cuboid. There is a small discrepancy of 0.15 × 10<sup>4</sup> Am<sup>-1</sup> around x = 0, which can be minimized by adjusting the value of the current density.
 
+<br />
 
 ## Citation
 Gartside, J.C., Jung, S.G., Yoo, S.Y. et al. Current-controlled nanomagnetic writing for reconfigurable magnonic crystals. *Commun Phys* **3**, 219 (2020). https://doi.org/10.1038/s42005-020-00487-y
 
+<br />
 
 ## 🔗 Links
 [![linkedin](https://img.shields.io/badge/S.G.Jung-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/son-gyo-jung-655537135/)
 [![linkedin](https://img.shields.io/badge/S.Y.Yoo-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/seung-yoo-a31428138/)
 
+<br />
 
 ## License
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://choosealicense.com/licenses/mit/)
