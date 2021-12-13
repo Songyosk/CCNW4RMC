@@ -2,47 +2,61 @@
 Nx := 410
 Ny := 110
 Nz := 25
+
 setGridSize(Nx, Ny, Nz)
 setCellSize(5e-9, 4e-9, 4e-9)
+
 Aex = 13e-12
 Xi = 0.1
+
 alpha = 0.02
 angle := 360
 ydim := 40e-9
 zdim := 40e-9
+
 translation := -27.5e-9
 bigR := 20e-9
 currentdensity := 3e12
+
 timestep := 20e-12
 totaltime := 5000e-12
+
 wireDW := cuboid(2000e-9, ydim, zdim).transl(0, 0, 0)
 wireSwitch := cuboid(75e-9, 380e-9, 5e-9).RotZ((360-angle)*pi/180).transl(410e-9, 0, translation)
 wireSwitch_left := cuboid(75e-9, 380e-9, 5e-9).RotZ((360-angle)*pi/180).transl(-410e-9, 0, translation)
+
 bottom := wireSwitch.add(wireSwitch_left)
 setGeom(wireDW.add(bottom))
 saveas(geom, "WireCross")
+
 defRegion(1, wireDW)
 defRegion(2, wireSwitch)
 defRegion(3, cuboid(40e-9, ydim, zdim).transl(-980e-9, 0, 0))
 defRegion(4, cuboid(40e-9, ydim, zdim).transl(980e-9, 0, 0))
 defRegion(5, wireSwitch_left)
+
 m.setRegion(1, twodomain(1, 0, 0, 0, 0, -1, -1, 0, 0))
 m.setRegion(2, uniform(sin(-angle*pi/180), -cos(angle*pi/180), 0))
 m.setRegion(3, uniform(1, 0, 0))
 m.setRegion(4, uniform(-1, 0, 0))
 m.setRegion(5, uniform(sin(-angle*pi/180), -cos(angle*pi/180), 0))
+
 Msat.setRegion(1, 800e3)
 Msat.setRegion(2, 800e3)
 Msat.setRegion(3, 800e3)
 Msat.setRegion(4, 800e3)
 Msat.setRegion(5, 800e3)
+
 frozenspins.setRegion(3, 1)
 frozenspins.setRegion(4, 1)
+
 BoundaryRegion := 1
 MagLeft := 1
 MagRight := -1
 ext_rmSurfaceCharge(BoundaryRegion, MagLeft, MagRight)
+
 saveas(m, "Init")
+
 Minimize()
 autosave(m, timestep)
 tableadd(m.Region(2))
@@ -54,6 +68,7 @@ tableadd(E_total)
 tableadd(E_Zeeman)
 tableautosave(timestep)
 pol.setRegion(1, 0.56)
+
 J.setRegion(1, vector(-1*currentdensity, 0, 0))
 maskout_1 := newVectorMask(Nx, Ny, Nz)
 for i := 0; i < Nx; i++ {
@@ -71,6 +86,7 @@ for i := 0; i < Nx; i++ {
 		}
 	}
 }
+
 maskout_2 := newVectorMask(Nx, Ny, Nz)
 for i := 0; i < Nx; i++ {
 	for j := 59; j < Ny; j++ {
@@ -87,6 +103,7 @@ for i := 0; i < Nx; i++ {
 		}
 	}
 }
+
 maskout_3 := newVectorMask(Nx, Ny, Nz)
 for i := 0; i < Nx; i++ {
 	for j := 50; j < 59; j++ {
@@ -103,6 +120,7 @@ for i := 0; i < Nx; i++ {
 		}
 	}
 }
+
 maskout_4 := newVectorMask(Nx, Ny, Nz)
 for i := 0; i < Nx; i++ {
 	for j := 50; j < 59; j++ {
@@ -119,6 +137,7 @@ for i := 0; i < Nx; i++ {
 		}
 	}
 }
+
 maskin := newVectorMask(Nx, Ny, Nz)
 for i := 0; i < Nx; i++ {
 	for j := 49; j < 60; j++ {
@@ -135,6 +154,7 @@ for i := 0; i < Nx; i++ {
 		}
 	}
 }
+
 B_ext.add(maskout_1, 1)
 B_ext.add(maskout_2, 1)
 B_ext.add(maskout_3, 1)
