@@ -30,7 +30,7 @@ The simulations are developed using mumax<sup>3</sup>, a GPU-accelerated microma
 <br />
 
 (i) Selective reversal of single nanoisland in two-island system <br />
-- (script name: smallv4_2; link - https://youtu.be/FiKxKtBjk7k)
+- script name: smallv4_2; link - https://youtu.be/FiKxKtBjk7k
 
 Description: Right-hand nanoisland in a two-nanoisland system is magnetically reversed while left-hand nanoisland is not reversed as the c-DW does not traverse it, demonstrating the local selectivity of the reversal method. 
 
@@ -41,9 +41,8 @@ https://user-images.githubusercontent.com/56391325/145804860-54de1143-a633-48ad-
  <br />
  
  
-(ii) Fully-selective reversal returning arbitrarily magnetised four-island system to uniform state, then fully-reversed state 
-
-(script name: Switchv11 final; link - https://youtu.be/F19qnYPWQKM)
+(ii) Fully-selective reversal returning arbitrarily magnetised four-island system to uniform state, then fully-reversed state <br />
+ - script name: Switchv11 final; link - https://youtu.be/F19qnYPWQKM
 
 Description: Combination of two 'skip' followed by two 'write' events returns abitrarily magnetised system to a uniform state. The drive-current polarity is then  reversed such that the c-DW motion is right-to-left, and a further combination of two 'skip' and two 'write' events are employed to prepare a state which is a  total magnetic reversal of the initial arbitrary magnetisation state. Nanowire is in h = 20 nm fully-selective mode.
 
@@ -54,9 +53,8 @@ https://user-images.githubusercontent.com/56391325/145732471-5ed2b45b-24d0-443d-
 <br />
   
   
-(iii) c-DW skipping across four-island system 
-
-(script name: Skipv12; link - https://youtu.be/4WkLE20AFM4)
+(iii) c-DW skipping across four-island system <br />
+- script name: Skipv12; link - https://youtu.be/4WkLE20AFM4
 
 Description: Four 'skip' events are combined to move the c-DW across a four island system without reversing any island magnetisation, demonstrating the freedom to  reposition the c-DW throughout an array.
 
@@ -67,9 +65,8 @@ https://user-images.githubusercontent.com/56391325/145803371-2e65dfc7-1e37-4fd7-
 <br />
 
   
-(iv) Fully-selective reversal combining 'skip' and 'write' events to prepare a 'single gate' state 
-
-(script name: doubleselectv42; link - https://youtu.be/x4G3z80CK_g)
+(iv) Fully-selective reversal combining 'skip' and 'write' events to prepare a 'single gate' state <br />
+- script name: doubleselectv42; link - https://youtu.be/x4G3z80CK_g
 
 Description: Reversal method employing varying current-density pulses to achieve combination of 'skip' and 'write' c-DW traversal events in a four-island system.  Nanowire is in h = 20 nm fullyselective mode. Starting from a uniformly-magnetised initial state, a combination of a single 'skip' followed by three 'write'  pulses are used to prepare an arbitrary magnetisation state. The final state corresponds to a 'single gate' case, gated at the right-hand island.
 
@@ -80,9 +77,8 @@ https://user-images.githubusercontent.com/56391325/145830821-e66a2ee1-a825-45de-
 <br />
 
 
-(v) Non-selective Oersted field reversal of both nanoislands in a two-island system 
-
-(script name: Smoking gun no2; link - https://youtu.be/-BJTMOu3GCc)
+(v) Non-selective Oersted field reversal of both nanoislands in a two-island system <br />
+- script name: Smoking gun no2; link - https://youtu.be/-BJTMOu3GCc
 
 Description: Both nanoislands in a two nanoisland system are simultaneously reversed by the Oersted field caused by current passing through the nanowire. This  demonstrates the distinction between the c-DW reversal method described here and conventional, non-selective Oersted field stripline techniques.
 
@@ -93,9 +89,8 @@ https://user-images.githubusercontent.com/56391325/145808734-cb319182-2d70-4fdb-
 <br />
 
 
-(vi) Selective reversal of single nanoisland in two-island system c.f. (v) 
-
-(script name: Smoking gun no1; link - https://youtu.be/dsGObVhVJUc)
+(vi) Selective reversal of single nanoisland in two-island system c.f. (v) <br />
+- script name: Smoking gun no1; link - https://youtu.be/dsGObVhVJUc
 
 Description: Right-hand nanoisland in a two nanoisland system is magnetically reversed while left-hand nanoisland is not reversed as the c-DW does not traverse  it, demonstrating the local selectivity of the reversal method.
 
