@@ -78,7 +78,7 @@ defRegion(7,wireSwitch4)
 
 
 
-m.LoadFile("grid3up.ovf")
+m.LoadFile("init_grid_cDW_1.ovf")
 
 //m.setRegion(1, twodomain(1, 0, 0, 0, 0, -1, -1, 0, 0))
 m.setRegion(2, uniform(1,0,0))
