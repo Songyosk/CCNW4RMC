@@ -90,7 +90,7 @@ Description: Right-hand nanoisland in a two nanoisland system is magnetically re
 
 https://user-images.githubusercontent.com/56391325/145808997-87fd262c-a5d1-4d19-afc9-e251e9a5cd4c.mp4
 
-
+<br />
 
 
 ## Reversal modes
