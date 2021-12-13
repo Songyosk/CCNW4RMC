@@ -26,7 +26,7 @@ Figure 1: (a) Representation of the ferromagnetic domain wall-carrying ‘contro
 
 ## Simulations
 
-The simulations are developed using mumax<sup>3</sup>, a GPU-accelerated micromagnetic simulation program developed at the DyNaMat group of Prof. Van Waeyenberge at Ghent University. This is availabe at https://mumax.github.io/. In addition, we used the Object Oriented MicroMagnetic Framework (OOMMF) to generate two-dimensional simulations, some of which are presented as figures in the paper. See more detail at https://math.nist.gov/oommf/.
+The simulations are developed using mumax<sup>3</sup>, a GPU-accelerated micromagnetic simulation program developed at the DyNaMat group of Prof. Van Waeyenberge at Ghent University. This is availabe at https://mumax.github.io/. In addition, the Object Oriented MicroMagnetic Framework (OOMMF) was used to generate two-dimensional simulations, some of which are presented as figures in the paper. See more detail at https://math.nist.gov/oommf/.
 
 
 Below are the simulations that were generated using the scripts herein.
@@ -55,7 +55,12 @@ Skipv12  (https://youtu.be/4WkLE20AFM4)
   
 
   
-(ivx) 
+(iv) Nanomagnetic Writing via Current-driven Domain Walls - selective writing with current variations
+
+https://user-images.githubusercontent.com/56391325/145806780-c8e76c2f-3576-4a32-9fab-d9fb262bbb84.mp4
+
+doubleselectv42 (https://youtu.be/x4G3z80CK_g)
+
 
 
 
