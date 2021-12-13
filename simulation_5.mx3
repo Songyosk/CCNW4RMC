@@ -1,0 +1,170 @@
+Nx:= 410
+Ny:= 110
+Nz:= 25
+setGridSize(Nx, Ny, Nz)
+setCellSize(5e-9, 4e-9, 4e-9)
+
+
+Aex     = 13e-12
+Xi      = 0.1
+alpha   = 0.02 
+
+angle:= 0
+ydim:=30e-9
+zdim:=(1600/30)*1e-9
+
+
+wireDW:=cuboid(2000e-9,ydim,zdim).transl(0,0,0)
+wireSwitch:=cuboid(75e-9,400e-9,5e-9).transl(410e-9,0,-34.1667e-9)
+
+setGeom(wireDW.add(wireSwitch))
+saveas(geom, "WireCross") 
+
+defRegion(1,wireDW)
+defRegion(2,wireSwitch)
+defRegion(3, cuboid(40e-9,ydim,zdim).transl(-980e-9,0,0))
+defRegion(4, cuboid(40e-9,ydim,zdim).transl(980e-9,0,0))
+
+
+m.setRegion(1, twodomain(1, 0, 0, 0, 0, -1, -1, 0, 0))
+m.setRegion(2, uniform(-sin(angle*pi/180),-cos(angle*pi/180), 0))
+m.setRegion(3, uniform(1,0,0))
+m.setRegion(4, uniform(-1,0,0))
+
+Msat.setRegion(1, 800e3)
+Msat.setRegion(2, 800e3)
+Msat.setRegion(3, 800e3)
+Msat.setRegion(4, 800e3)
+
+frozenspins.setRegion(3,1)
+frozenspins.setRegion(4,1)
+
+// Remove surface charges from left (mx=1) and right (mx=-1) sides to mimic infinitely long wire. We have to specify the region (0) at the boundaries.
+BoundaryRegion := 1
+MagLeft        := 1
+MagRight       := -1
+ext_rmSurfaceCharge(BoundaryRegion, MagLeft, MagRight)
+
+saveas(m, "Init")
+
+Minimize()
+
+
+// Schedule output
+autosave(m, 100e-12)
+tableadd(E_anis)
+tableadd(E_demag)
+tableadd(E_exch)
+tableadd(E_therm)
+tableadd(E_total)
+tableadd(E_Zeeman)
+tableautosave(100e-12)
+
+// Run the simulation with current through the sample
+currentdensity := 6e12
+pol.setRegion(1, 0.56)
+J.setRegion(1, vector(-1*currentdensity, 0, 0))
+
+
+//Oersted field
+//outside
+maskout_1 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=0; j<51; j++{
+		for k:=0; k<Nz; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_1.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+maskout_2 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=58; j<Ny; j++{
+		for k:=0; k<Nz; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_2.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+maskout_3 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=51; j<58; j++{
+		for k:=18; k<Nz; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_3.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+maskout_4 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=51; j<58; j++{
+		for k:=0; k<6; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_4.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+
+
+
+
+//inside
+maskin := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=50; j<59; j++{
+		for k:=5; k<19; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			bigR:= 26.5e-9			//radius of cylinder or our cuboid
+			d := sqrt(z*z + y*y) 		//radial distance of B field
+			B := (mu0 * 1* currentdensity * ydim * zdim *d)/(2 * pi * bigR * bigR) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskin.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+
+B_ext.add(maskout_1, 1)
+B_ext.add(maskout_2, 1)
+B_ext.add(maskout_3, 1)
+B_ext.add(maskout_4, 1)
+B_ext.add(maskin, 1)
+
+Run(4500e-12)
+
