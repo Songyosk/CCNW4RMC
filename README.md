@@ -57,15 +57,23 @@ https://user-images.githubusercontent.com/56391325/145803371-2e65dfc7-1e37-4fd7-
 
 
   
-(iv) Nanomagnetic Writing via Current-driven Domain Walls - selective writing with current variations (script name: doubleselectv42; link - https://youtu.be/x4G3z80CK_g)
+(iv) Fully-selective reversal combining 'skip' and 'write' events to prepare a 'single gate' state (script name: doubleselectv42; link - https://youtu.be/x4G3z80CK_g)
 
-https://user-images.githubusercontent.com/56391325/145806780-c8e76c2f-3576-4a32-9fab-d9fb262bbb84.mp4
+https://user-images.githubusercontent.com/56391325/145830821-e66a2ee1-a825-45de-8a3e-6a6655ea9c37.mp4
+
+Description: Reversal method employing varying current-density pulses to achieve combination of 'skip' and 'write' c-DW traversal events in a four-island system.  Nanowire is in h = 20 nm fullyselective mode. Starting from a uniformly-magnetised initial state, a combination of a single 'skip' followed by three 'write'  pulses are used to prepare an arbitrary magnetisation state. The final state corresponds to a 'single gate' case, gated at the right-hand island.
+
+
 
 
 
 (v) Oersted field switching magnetisation of nanoislands (script name: Smoking gun no2; link - https://youtu.be/-BJTMOu3GCc)
 
 https://user-images.githubusercontent.com/56391325/145808734-cb319182-2d70-4fdb-b693-8326c4510d04.mp4
+
+Description:  Non-selective  Oersted  field  reversal  of  both  nanoislands  in  a  two-island  system Both  nanoislands  in  a  two  nanoisland  system  are  simultaneously  reversed  by the  Oersted field  caused  by current  passing  through  the  nanowire.  This  demonstrates  the  distinction between  the  cDW  reversal  method  described  here  and  conventional,  non-selective  Oersted field  stripline  techniques.\\ 
+
+
 
 
 
