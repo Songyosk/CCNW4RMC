@@ -11,6 +11,15 @@ Nature Communications Physics <br />
 
 ----
 
+Explain:
+- what the file is
+
+- why we use it
+- how we use it
+- which simulations used this technique
+
+
+
 ## Introduction
 
 Strongly-interacting nanomagnetic arrays are crucial across an ever-growing suite of technologies. Spanning neuromorphic computing, control over superconducting vortices and reconfigurable magnonics, the utility and appeal of these arrays lies in their vast range of distinct, stable magnetization states. Different states exhibit different functional behaviours, making precise, reconfigurable state control an essential cornerstone of such systems. However, few existing methodologies may reverse an arbitrary array element, and even fewer may do so under electrical control, vital for device integration. We demonstrate selective, reconfigurable magnetic reversal of ferromagnetic nanoislands via current-driven motion of a transverse domain wall in an adjacent nanowire. The reversal technique operates under all-electrical control with no reliance on external magnetic fields, rendering it highly suitable for device integration across a host of magnonic, spintronic and neuromorphic logic architectures.
