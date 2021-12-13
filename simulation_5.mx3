@@ -4,7 +4,6 @@ Nz:= 25
 setGridSize(Nx, Ny, Nz)
 setCellSize(5e-9, 4e-9, 4e-9)
 
-
 Aex     = 13e-12
 Xi      = 0.1
 alpha   = 0.02 
@@ -12,7 +11,6 @@ alpha   = 0.02
 angle:= 0
 ydim:=30e-9
 zdim:=(1600/30)*1e-9
-
 
 wireDW:=cuboid(2000e-9,ydim,zdim).transl(0,0,0)
 wireSwitch:=cuboid(75e-9,400e-9,5e-9).transl(410e-9,0,-34.1667e-9)
@@ -24,7 +22,6 @@ defRegion(1,wireDW)
 defRegion(2,wireSwitch)
 defRegion(3, cuboid(40e-9,ydim,zdim).transl(-980e-9,0,0))
 defRegion(4, cuboid(40e-9,ydim,zdim).transl(980e-9,0,0))
-
 
 m.setRegion(1, twodomain(1, 0, 0, 0, 0, -1, -1, 0, 0))
 m.setRegion(2, uniform(-sin(angle*pi/180),-cos(angle*pi/180), 0))
@@ -167,4 +164,3 @@ B_ext.add(maskout_4, 1)
 B_ext.add(maskin, 1)
 
 Run(4500e-12)
-
