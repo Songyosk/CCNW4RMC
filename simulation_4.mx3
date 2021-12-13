@@ -4,7 +4,6 @@ Nz:= 26
 setGridSize(Nx, Ny, Nz)
 setCellSize(4e-9, 4e-9, 4e-9)
 
-
 Aex     = 13e-12
 Xi      = 0.1
 alpha   = 0.02 
@@ -54,7 +53,6 @@ saveas(geom, "WireCross")
 
 //saveas(m, "geometry")
 
-
 defRegion(1,wireDW)
 defRegion(2, cuboid(40e-9,ydim,zdim).transl(-1980e-9,0,0))
 defRegion(3, cuboid(40e-9,ydim,zdim).transl(1980e-9,0,0))
@@ -62,7 +60,6 @@ defRegion(4,wireSwitch1)
 defRegion(5,wireSwitch2)
 defRegion(6,wireSwitch3)
 defRegion(7,wireSwitch4)
-
 
 m.LoadFile("init_grid_cDW_2.ovf")
 
@@ -74,10 +71,6 @@ m.setRegion(5, uniform(sin(angle*pi/180),cos(angle*pi/180), 0))
 m.setRegion(6, uniform(sin(angle*pi/180),cos(angle*pi/180), 0))
 m.setRegion(7, uniform(sin(angle*pi/180),cos(angle*pi/180), 0))
 
-
-
-
-
 Msat.setRegion(1, 800e3)
 Msat.setRegion(2, 800e3)
 Msat.setRegion(3, 800e3)
@@ -86,10 +79,8 @@ Msat.setRegion(5, 800e3)
 Msat.setRegion(6, 800e3)
 Msat.setRegion(7, 800e3)
 
-
 frozenspins.setRegion(2,1)
 frozenspins.setRegion(3,1)
-
 
 //saveas(m, "geometry2")
 //saveas(B_ext, "beforeSC")
@@ -102,7 +93,6 @@ ext_rmSurfaceCharge(BoundaryRegion, MagLeft, MagRight)
 
 saveas(m, "Init")
 //saveas(B_ext, "afterSC")
-
 
 //Minimize()
 
@@ -356,22 +346,13 @@ B_ext.add(maskout_23, 1)
 B_ext.add(maskout_24, 1)
 B_ext.add(maskin2, 1)
 
-
 saveas(B_ext, "oersted2")
-
 
 Run(time2)
 
 
-
-
-
-
-
 //reset B_ext field
 B_ext = vector (0,0,0)
-
-
 
 
 // second current pulse
@@ -450,9 +431,6 @@ for i:=0; i<Nx; i++{
 }
 
 
-
-
-
 //inside
 maskin3 := newVectorMask(Nx, Ny, Nz)
 for i:=0; i<Nx; i++{
@@ -472,8 +450,6 @@ for i:=0; i<Nx; i++{
 }
 
 
-
-
 B_ext.add(maskout_31, 1)
 B_ext.add(maskout_32, 1)
 B_ext.add(maskout_33, 1)
@@ -485,4 +461,3 @@ saveas(B_ext, "oersted3")
 
 
 Run(totaltime - time1 - time2)
-
