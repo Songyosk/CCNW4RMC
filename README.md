@@ -9,7 +9,9 @@ Nature Communications Physics <br />
 <a href="https://www.nature.com/articles/s42005-020-00487-y">Paper HTML</a>
 </p>
 
+<p align="center">
 *Note: all simulations were performed on the Imperial College London Research Computing Service*
+</p>
 
 ----
 
