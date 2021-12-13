@@ -36,14 +36,14 @@ Below are the simulations that were generated using the scripts herein.
 https://user-images.githubusercontent.com/56391325/145804860-54de1143-a633-48ad-b37b-a8657a8fae2d.mp4
 
 
-  smallv4_2.mp4 (https://youtu.be/FiKxKtBjk7k)
+Script name: smallv4_2 (https://youtu.be/FiKxKtBjk7k)
   
  
 (ii) Selective writing - Reversing all the magnetisation states of the nanoislands
 
 https://user-images.githubusercontent.com/56391325/145732471-5ed2b45b-24d0-443d-9188-ded5e096215c.mp4
 
-  Switchv11 final (https://youtu.be/F19qnYPWQKM)
+Script name: Switchv11 final (https://youtu.be/F19qnYPWQKM)
 
   
   
@@ -51,7 +51,7 @@ https://user-images.githubusercontent.com/56391325/145732471-5ed2b45b-24d0-443d-
 
 https://user-images.githubusercontent.com/56391325/145803371-2e65dfc7-1e37-4fd7-9318-22d4ce2deddd.mp4
 
-Skipv12  (https://youtu.be/4WkLE20AFM4)
+Script name: Skipv12 (https://youtu.be/4WkLE20AFM4)
   
 
   
@@ -59,16 +59,15 @@ Skipv12  (https://youtu.be/4WkLE20AFM4)
 
 https://user-images.githubusercontent.com/56391325/145806780-c8e76c2f-3576-4a32-9fab-d9fb262bbb84.mp4
 
-doubleselectv42 (https://youtu.be/x4G3z80CK_g)
+Script name: doubleselectv42 (https://youtu.be/x4G3z80CK_g)
 
 
 
+- Run file
 
 
 ## Figures
 Below are the figures as presented in the paper:
-
-
 
 ![MW1](_figures_/magnetic_writing_2.png)
 Figure 2: Close-proximity and fully selective reversal modes. (a)–(c) Close-proximity reversal mode. (d) Fully selective reversal. (a) With Oersted-field H<sub>Oe</sub> antiparallel to the initial nanoisland magnetization HOe aids reversal, driving the low- and high-energy nanoisland domain walls (i-DWs) to opposite nanoisland ends and achieving successful switching. (b) With H<sub>Oe</sub> aligned to the initial nanoisland magnetization, the reversal process is hindered, H<sub>Oe</sub> drives the low- and high-energy i-DWs into the same nanoisland end, resulting in failed switching. (c) Four-island array initialized (‘before’ panel) with second and third islands in 𝑀 = +𝑦̂  state, and first and fourth in 𝑀 = −𝑦̂  state. Control domain wall (c-DW) is then driven across the array such that 𝐇<sub>Oe</sub> = +𝑦̂, driving successful reversal of 𝑀 = −𝑦̂  islands (as described in (a)) and failed reversal of 𝑀 = +𝑦̂  islands (as in (b)). (d) c-DW begins to the left of two nanoislands (t = 0). It is driven over the first nanoisland by a J = 2.0 × 10<sup>12</sup> A/m<sup>2</sup> ‘skip’ current pulse, leaving the nanoisland unswitched as H<sub>Oe</sub> + H<sub>DW</sub>  < H<sub>N</sub>, the nucleation field. The c-DW is then driven over the second nanoisland with a J = 5.5 × 10<sup>12</sup> A/m<sup>2</sup> ‘write’ pulse, switching the nanoisland magnetization as H<sub>Oe</sub> + H<sub>DW</sub> ≥ H<sub>N</sub>.
