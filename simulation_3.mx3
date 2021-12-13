@@ -1,0 +1,497 @@
+//output directory: skipv12.out/
+Nx := 750
+Ny := 150
+Nz := 26
+setGridSize(Nx, Ny, Nz)
+setCellSize(4e-9, 4e-9, 4e-9)
+Aex = 13e-12
+Xi = 0.1
+alpha = 0.02
+distance := 40
+xoffset := 20 + 37.5
+nanoislandlength := 400
+angle := 360
+ydim := 40e-9
+zdim := 40e-9
+translation := -(22.5 + 20) * 1e-9
+ytranslation := (nanoislandlength + 40) * 1e-9
+bigR := 20e-9
+timestep := 50e-12
+time0 := 2800e-12
+time1 := 4600e-12
+time2 := 4600e-12
+time3 := 4400e-12
+time4 := 4400e-12
+notch1 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(0, 20e-9, 0)
+notch2 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(300e-9, 20e-9, 0)
+notch3 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(600e-9, 20e-9, 0)
+notch4 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(-300e-9, 20e-9, 0)
+notch5 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(-600e-9, 20e-9, 0)
+notch6 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(0, -20e-9, 0)
+notch7 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(300e-9, -20e-9, 0)
+notch8 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(600e-9, -20e-9, 0)
+notch9 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(-300e-9, -20e-9, 0)
+notch10 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(-600e-9, -20e-9, 0)
+notch := notch1.add(notch2).add(notch3).add(notch4).add(notch5).add(notch6).add(notch7).add(notch8).add(notch9).add(notch10)
+wireDW := cuboid(3000e-9, ydim, zdim).transl(0, 0, 0).sub(notch)
+semicircle1 := cylinder(75e-9, 5e-9).transl(0, ((nanoislandlength-75)*0.5)*1e-9, 0)
+semicircle2 := cylinder(75e-9, 5e-9).transl(0, -((nanoislandlength-75)*0.5)*1e-9, 0)
+nanoisland := cuboid(75e-9, (nanoislandlength-75)*1e-9, 5e-9).add(semicircle1).add(semicircle2)
+wireSwitch1 := nanoisland.RotZ((360-angle)*pi/180).transl(-450e-9, 0, translation)
+wireSwitch2 := nanoisland.RotZ((360-angle)*pi/180).transl(-150e-9, 0, translation)
+wireSwitch3 := nanoisland.RotZ((360-angle)*pi/180).transl(150e-9, 0, translation)
+wireSwitch4 := nanoisland.RotZ((360-angle)*pi/180).transl(450e-9, 0, translation)
+wires := wireSwitch1.add(wireSwitch2).add(wireSwitch3).add(wireSwitch4)
+setGeom(wireDW.add(wires))
+defRegion(1, wireDW)
+defRegion(2, cuboid(40e-9, ydim, zdim).transl(-1480e-9, 0, 0))
+defRegion(3, cuboid(40e-9, ydim, zdim).transl(1480e-9, 0, 0))
+defRegion(4, wireSwitch1)
+defRegion(5, wireSwitch2)
+defRegion(6, wireSwitch3)
+defRegion(7, wireSwitch4)
+m.LoadFile("grid3up.ovf")
+m.setRegion(2, uniform(1, 0, 0))
+m.setRegion(3, uniform(-1, 0, 0))
+m.setRegion(4, uniform(sin(angle*pi/180), cos(angle*pi/180), 0))
+m.setRegion(5, uniform(sin(angle*pi/180), cos(angle*pi/180), 0))
+m.setRegion(6, uniform(-sin(angle*pi/180), -cos(angle*pi/180), 0))
+m.setRegion(7, uniform(-sin(angle*pi/180), -cos(angle*pi/180), 0))
+Msat.setRegion(1, 800e3)
+Msat.setRegion(2, 800e3)
+Msat.setRegion(3, 800e3)
+Msat.setRegion(4, 800e3)
+Msat.setRegion(5, 800e3)
+Msat.setRegion(6, 800e3)
+Msat.setRegion(7, 800e3)
+frozenspins.setRegion(2, 1)
+frozenspins.setRegion(3, 1)
+saveas(m, "geometry")
+BoundaryRegion := 1
+MagLeft := 1
+MagRight := -1
+ext_rmSurfaceCharge(BoundaryRegion, MagLeft, MagRight)
+saveas(m, "Init")
+autosave(m, timestep)
+tableadd(B_ext)
+tableadd(B_ext.Region(1))
+tableadd(B_ext.Region(4))
+tableadd(B_ext.Region(5))
+tableadd(B_ext.Region(6))
+tableadd(B_ext.Region(7))
+tableadd(m.Region(1))
+tableadd(m.Region(4))
+tableadd(m.Region(5))
+tableadd(m.Region(6))
+tableadd(m.Region(7))
+tableadd(E_anis)
+tableadd(E_demag)
+tableadd(E_exch)
+tableadd(E_therm)
+tableadd(E_total)
+tableadd(E_Zeeman)
+tableautosave(timestep)
+currentdensity0 := 2 * 1e12
+maskout_01 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 0; j < 70; j++ {
+		for k := 0; k < Nz; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity0 * ydim * zdim) / (2 * pi * d)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskout_01.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+maskout_02 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 80; j < Ny; j++ {
+		for k := 0; k < Nz; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity0 * ydim * zdim) / (2 * pi * d)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskout_02.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+maskout_03 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 70; j < 80; j++ {
+		for k := 18; k < Nz; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity0 * ydim * zdim) / (2 * pi * d)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskout_03.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+maskout_04 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 70; j < 80; j++ {
+		for k := 0; k < 8; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity0 * ydim * zdim) / (2 * pi * d)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskout_04.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+maskin0 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 70; j < 80; j++ {
+		for k := 8; k < 18; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity0 * ydim * zdim * d) / (2 * pi * bigR * bigR)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskin0.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+currentdensity1 := 5.5 * 1e12
+maskout_11 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 0; j < 70; j++ {
+		for k := 0; k < Nz; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity1 * ydim * zdim) / (2 * pi * d)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskout_11.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+maskout_12 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 80; j < Ny; j++ {
+		for k := 0; k < Nz; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity1 * ydim * zdim) / (2 * pi * d)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskout_12.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+maskout_13 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 70; j < 80; j++ {
+		for k := 18; k < Nz; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity1 * ydim * zdim) / (2 * pi * d)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskout_13.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+maskout_14 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 70; j < 80; j++ {
+		for k := 0; k < 8; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity1 * ydim * zdim) / (2 * pi * d)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskout_14.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+maskin1 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 70; j < 80; j++ {
+		for k := 8; k < 18; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity1 * ydim * zdim * d) / (2 * pi * bigR * bigR)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskin1.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+currentdensity2 := -2 * 1e12
+maskout_21 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 0; j < 70; j++ {
+		for k := 0; k < Nz; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity2 * ydim * zdim) / (2 * pi * d)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskout_21.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+maskout_22 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 80; j < Ny; j++ {
+		for k := 0; k < Nz; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity2 * ydim * zdim) / (2 * pi * d)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskout_22.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+maskout_23 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 70; j < 80; j++ {
+		for k := 18; k < Nz; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity2 * ydim * zdim) / (2 * pi * d)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskout_23.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+maskout_24 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 70; j < 80; j++ {
+		for k := 0; k < 8; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity2 * ydim * zdim) / (2 * pi * d)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskout_24.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+maskin2 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 70; j < 80; j++ {
+		for k := 8; k < 18; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity2 * ydim * zdim * d) / (2 * pi * bigR * bigR)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskin2.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+currentdensity3 := -5.5 * 1e12
+maskout_31 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 0; j < 70; j++ {
+		for k := 0; k < Nz; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity3 * ydim * zdim) / (2 * pi * d)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskout_31.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+maskout_32 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 80; j < Ny; j++ {
+		for k := 0; k < Nz; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity3 * ydim * zdim) / (2 * pi * d)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskout_32.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+maskout_33 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 70; j < 80; j++ {
+		for k := 18; k < Nz; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity3 * ydim * zdim) / (2 * pi * d)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskout_33.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+maskout_34 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 70; j < 80; j++ {
+		for k := 0; k < 8; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity3 * ydim * zdim) / (2 * pi * d)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskout_34.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+maskin3 := newVectorMask(Nx, Ny, Nz)
+for i := 0; i < Nx; i++ {
+	for j := 70; j < 80; j++ {
+		for k := 8; k < 18; k++ {
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y)
+			B := (mu0 * 1 * currentdensity3 * ydim * zdim * d) / (2 * pi * bigR * bigR)
+			By := (-1 * B * z) / d
+			Bz := (B * y) / d
+			maskin3.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+pol.setRegion(1, 0.56)
+J.setRegion(1, vector(-1*currentdensity0, 0, 0))
+B_ext.add(maskout_01, 1)
+B_ext.add(maskout_02, 1)
+B_ext.add(maskout_03, 1)
+B_ext.add(maskout_04, 1)
+B_ext.add(maskin0, 1)
+saveas(B_ext, "oersted0")
+Run(time0)
+J.setRegion(1, vector(0, 0, 0))
+B_ext.add(maskout_21, 1)
+B_ext.add(maskout_22, 1)
+B_ext.add(maskout_23, 1)
+B_ext.add(maskout_24, 1)
+B_ext.add(maskin2, 1)
+Run(500e-12)
+pol.setRegion(1, 0.56)
+J.setRegion(1, vector(-1*currentdensity0, 0, 0))
+B_ext.add(maskout_01, 1)
+B_ext.add(maskout_02, 1)
+B_ext.add(maskout_03, 1)
+B_ext.add(maskout_04, 1)
+B_ext.add(maskin0, 1)
+saveas(B_ext, "oersted1")
+Run(time1)
+J.setRegion(1, vector(0, 0, 0))
+B_ext.add(maskout_21, 1)
+B_ext.add(maskout_22, 1)
+B_ext.add(maskout_23, 1)
+B_ext.add(maskout_24, 1)
+B_ext.add(maskin2, 1)
+Run(500e-12)
+pol.setRegion(1, 0.56)
+J.setRegion(1, vector(-1*currentdensity0, 0, 0))
+B_ext.add(maskout_01, 1)
+B_ext.add(maskout_02, 1)
+B_ext.add(maskout_03, 1)
+B_ext.add(maskout_04, 1)
+B_ext.add(maskin0, 1)
+saveas(B_ext, "oersted2")
+Run(time2)
+J.setRegion(1, vector(0, 0, 0))
+B_ext.add(maskout_21, 1)
+B_ext.add(maskout_22, 1)
+B_ext.add(maskout_23, 1)
+B_ext.add(maskout_24, 1)
+B_ext.add(maskin2, 1)
+Run(500e-12)
+pol.setRegion(1, 0.56)
+J.setRegion(1, vector(-1*currentdensity0, 0, 0))
+B_ext.add(maskout_01, 1)
+B_ext.add(maskout_02, 1)
+B_ext.add(maskout_03, 1)
+B_ext.add(maskout_04, 1)
+B_ext.add(maskin0, 1)
+saveas(B_ext, "oersted2")
+Run(time3)
+J.setRegion(1, vector(0, 0, 0))
+B_ext.add(maskout_21, 1)
+B_ext.add(maskout_22, 1)
+B_ext.add(maskout_23, 1)
+B_ext.add(maskout_24, 1)
+B_ext.add(maskin2, 1)
+Run(500e-12)
+pol.setRegion(1, 0.56)
+J.setRegion(1, vector(-1*currentdensity0, 0, 0))
+B_ext.add(maskout_01, 1)
+B_ext.add(maskout_02, 1)
+B_ext.add(maskout_03, 1)
+B_ext.add(maskout_04, 1)
+B_ext.add(maskin0, 1)
+saveas(B_ext, "oersted2")
+Run(time4)
+J.setRegion(1, vector(0, 0, 0))
+B_ext.add(maskout_21, 1)
+B_ext.add(maskout_22, 1)
+B_ext.add(maskout_23, 1)
+B_ext.add(maskout_24, 1)
+B_ext.add(maskin2, 1)
+Run(500e-12)

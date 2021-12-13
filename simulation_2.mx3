@@ -1,0 +1,770 @@
+Nx:= 750
+Ny:= 150 			
+Nz:= 26
+setGridSize(Nx, Ny, Nz)
+setCellSize(4e-9, 4e-9, 4e-9)
+
+
+Aex     = 13e-12
+Xi      = 0.1
+alpha   = 0.02 
+
+distance:= 40
+xoffset:= 20+37.5
+nanoislandlength := 400
+
+angle:= 360
+ydim:=40e-9
+zdim:=40e-9
+translation := -(22.5 + 20)*1e-9
+ytranslation:= (nanoislandlength + 40)*1e-9
+
+bigR:= 20e-9			//radius of cylinder or our cuboid
+
+
+timestep := 50e-12
+time0:= 2800e-12   //1100, 1600
+time4 := 4500e-12   //13500, 13900
+timereverse :=300e-12     //52
+time5:= 1200e-12    //64, 66.5
+time6:= 3400e-12    //75.5, 78
+time7 := 1800e-12   //22700, 23200
+time8 := 2400e-12   //24600, 25100
+
+
+//Bxangle:= 1 //in degrees
+//Bmag := 0.005 //Tesla
+
+//current carrying wire
+notch1 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(0, 20e-9, 0)
+notch2 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(300e-9, 20e-9, 0)
+notch3 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(600e-9, 20e-9, 0)
+notch4 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(-300e-9, 20e-9, 0)
+notch5 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(-600e-9, 20e-9, 0)
+notch6 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(0, -20e-9, 0)
+notch7 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(300e-9, -20e-9, 0)
+notch8 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(600e-9, -20e-9, 0)
+notch9 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(-300e-9, -20e-9, 0)
+notch10 := cuboid(10e-9, 10e-9, 40e-9).RotZ(45*pi/180).transl(-600e-9, -20e-9, 0)
+notch:= notch1.add(notch2).add(notch3).add(notch4).add(notch5).add(notch6).add(notch7).add(notch8).add(notch9).add(notch10)
+wireDW:=cuboid(3000e-9,ydim,zdim).transl(0,0,0).sub(notch)
+
+//nanoisland circular ends
+semicircle1:= cylinder(75e-9, 5e-9).transl(0, ((nanoislandlength-75)*0.5)*1e-9, 0)
+semicircle2:= cylinder(75e-9, 5e-9).transl(0,-((nanoislandlength-75)*0.5)*1e-9, 0)
+nanoisland:= cuboid(75e-9, (nanoislandlength-75)*1e-9, 5e-9).add(semicircle1).add(semicircle2)
+
+
+//two nanoislands
+wireSwitch1:=nanoisland.RotZ((360-angle)*pi/180).transl(-450e-9,0,translation)
+wireSwitch2:=nanoisland.RotZ((360-angle)*pi/180).transl(-150e-9,0,translation)
+wireSwitch3:=nanoisland.RotZ((360-angle)*pi/180).transl(150e-9,0,translation)
+wireSwitch4:=nanoisland.RotZ((360-angle)*pi/180).transl(450e-9,0,translation)
+wires:= wireSwitch1.add(wireSwitch2).add(wireSwitch3).add(wireSwitch4)
+
+setGeom(wireDW.add(wires))
+//saveas(geom, "WireCross") 
+
+
+
+
+defRegion(1,wireDW)
+defRegion(2, cuboid(40e-9,ydim,zdim).transl(-1480e-9,0,0))
+defRegion(3, cuboid(40e-9,ydim,zdim).transl(1480e-9,0,0))
+defRegion(4,wireSwitch1)
+defRegion(5,wireSwitch2)
+defRegion(6,wireSwitch3)
+defRegion(7,wireSwitch4)
+
+
+
+m.LoadFile("grid3up.ovf")
+
+//m.setRegion(1, twodomain(1, 0, 0, 0, 0, -1, -1, 0, 0))
+m.setRegion(2, uniform(1,0,0))
+m.setRegion(3, uniform(-1,0,0))
+m.setRegion(4, uniform(sin(angle*pi/180),cos(angle*pi/180), 0))
+m.setRegion(5, uniform(sin(angle*pi/180),cos(angle*pi/180), 0))
+m.setRegion(6, uniform(-sin(angle*pi/180),-cos(angle*pi/180), 0))
+m.setRegion(7, uniform(-sin(angle*pi/180),-cos(angle*pi/180), 0))
+
+
+
+Msat.setRegion(1, 800e3)
+Msat.setRegion(2, 800e3)
+Msat.setRegion(3, 800e3)
+Msat.setRegion(4, 800e3)
+Msat.setRegion(5, 800e3)
+Msat.setRegion(6, 800e3)
+Msat.setRegion(7, 800e3)
+
+frozenspins.setRegion(2,1)
+frozenspins.setRegion(3,1)
+
+
+saveas(m, "geometry")
+
+
+// Remove surface charges from left (mx=1) and right (mx=-1) sides to mimic infinitely long wire. We have to specify the region (0) at the boundaries.
+BoundaryRegion := 1
+MagLeft        := 1
+MagRight       := -1
+ext_rmSurfaceCharge(BoundaryRegion, MagLeft, MagRight)
+
+saveas(m, "Init")
+
+
+
+//Minimize()
+
+//saveas(m, "minimised")
+
+// Schedule output
+autosave(m, timestep)
+tableadd(B_ext)
+tableadd(B_ext.Region(1))
+tableadd(B_ext.Region(4))
+tableadd(B_ext.Region(5))
+tableadd(B_ext.Region(6))
+tableadd(B_ext.Region(7))
+tableadd(m.Region(1))
+tableadd(m.Region(4))
+tableadd(m.Region(5))
+tableadd(m.Region(6))
+tableadd(m.Region(7))
+tableadd(E_anis)
+tableadd(E_demag)
+tableadd(E_exch)
+tableadd(E_therm)
+tableadd(E_total)
+tableadd(E_Zeeman)
+tableautosave(timestep)
+
+
+
+
+
+
+
+
+
+//Oersted field for current density J= +2
+currentdensity0 := 2*1e12
+//outside
+maskout_01 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=0; j<70; j++{
+		for k:=0; k<Nz; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity0 * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_01.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+maskout_02 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=80; j<Ny; j++{
+		for k:=0; k<Nz; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity0 * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_02.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+maskout_03 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=70; j<80; j++{
+		for k:=18; k<Nz; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity0 * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_03.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+maskout_04 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=70; j<80; j++{
+		for k:=0; k<8; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity0 * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_04.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+
+//inside
+maskin0 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=70; j<80; j++{
+		for k:=8; k<18; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) 		//radial distance of B field
+			B := (mu0 * 1* currentdensity0 * ydim * zdim *d)/(2 * pi * bigR * bigR) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskin0.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+
+
+
+
+
+
+
+//Oersted field for current density J = +5.5 
+currentdensity1 := 5.5*1e12
+//outside
+maskout_11 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=0; j<70; j++{
+		for k:=0; k<Nz; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity1 * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_11.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+maskout_12 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=80; j<Ny; j++{
+		for k:=0; k<Nz; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity1 * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_12.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+maskout_13 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=70; j<80; j++{
+		for k:=18; k<Nz; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity1 * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_13.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+maskout_14 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=70; j<80; j++{
+		for k:=0; k<8; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity1 * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_14.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+
+
+//inside
+maskin1 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=70; j<80; j++{
+		for k:=8; k<18; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) 		//radial distance of B field
+			B := (mu0 * 1* currentdensity1 * ydim * zdim *d)/(2 * pi * bigR * bigR) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskin1.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+//Oersted field for current density J = -2
+currentdensity2 := -2*1e12
+
+//outside
+maskout_21 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=0; j<70; j++{
+		for k:=0; k<Nz; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity2 * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_21.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+maskout_22 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=80; j<Ny; j++{
+		for k:=0; k<Nz; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity2 * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_22.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+maskout_23 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=70; j<80; j++{
+		for k:=18; k<Nz; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity2 * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_23.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+maskout_24 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=70; j<80; j++{
+		for k:=0; k<8; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity2 * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_24.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+
+
+
+
+//inside
+maskin2 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=70; j<80; j++{
+		for k:=8; k<18; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) 		//radial distance of B field
+			B := (mu0 * 1* currentdensity2 * ydim * zdim *d)/(2 * pi * bigR * bigR) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskin2.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+
+
+
+
+
+
+
+//Oersted field for current density J = - 5.5 
+currentdensity3 := -5.5*1e12
+
+//Oersted field
+//outside
+maskout_31 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=0; j<70; j++{
+		for k:=0; k<Nz; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity3 * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_31.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+maskout_32 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=80; j<Ny; j++{
+		for k:=0; k<Nz; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity3 * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_32.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+maskout_33 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=70; j<80; j++{
+		for k:=18; k<Nz; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity3 * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_33.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+maskout_34 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=70; j<80; j++{
+		for k:=0; k<8; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) //radial distance of B field
+			B := (mu0 * 1* currentdensity3 * ydim * zdim)/(2*pi*d) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskout_34.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+
+
+
+//inside
+maskin3 := newVectorMask(Nx, Ny, Nz)
+for i:=0; i<Nx; i++{
+	for j:=70; j<80; j++{
+		for k:=8; k<18; k++{
+			r := index2coord(i, j, k)
+			x := r.X()
+			y := r.Y()
+			z := r.Z()
+			d := sqrt(z*z + y*y) 		//radial distance of B field
+			B := (mu0 * 1* currentdensity3 * ydim * zdim *d)/(2 * pi * bigR * bigR) 
+			By := (-1*B*z)/d
+			Bz := (B*y)/d
+			maskin3.setVector(i, j, k, vector(0, By, Bz))
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+//PULSES,      FIELD RESET <0: J=2>     <1: J=5.5>     <2: J= -2>     <3: J= -5.5> 
+
+
+
+
+// zeroth current pulse to the first notch
+pol.setRegion(1, 0.56)
+J.setRegion(1, vector(-1*currentdensity0, 0, 0))
+
+B_ext.add(maskout_01, 1)
+B_ext.add(maskout_02, 1)
+B_ext.add(maskout_03, 1)
+B_ext.add(maskout_04, 1)
+B_ext.add(maskin0, 1)
+saveas(B_ext, "oersted0")
+
+Run(time0)
+
+
+
+
+//Reset B_ext field
+J.setRegion(1, vector(0, 0, 0))
+B_ext.add(maskout_21, 1)
+B_ext.add(maskout_22, 1)
+B_ext.add(maskout_23, 1)
+B_ext.add(maskout_24, 1)
+B_ext.add(maskin2, 1)
+Run(500e-12)
+
+
+
+
+
+
+//Fourth pulse
+pol.setRegion(1, 0.56)
+J.setRegion(1, vector(-1*currentdensity1, 0, 0))
+
+B_ext.add(maskout_11, 1)
+B_ext.add(maskout_12, 1)
+B_ext.add(maskout_13, 1)
+B_ext.add(maskout_14, 1)
+B_ext.add(maskin1, 1)
+saveas(B_ext, "oersted4")
+
+Run(time4)
+
+
+
+
+//Reset B_ext field
+J.setRegion(1, vector(0, 0, 0))
+B_ext.add(maskout_31, 1)
+B_ext.add(maskout_32, 1)
+B_ext.add(maskout_33, 1)
+B_ext.add(maskout_34, 1)
+B_ext.add(maskin3, 1)
+Run(500e-12)
+
+
+
+
+
+
+
+//timereverse
+pol.setRegion(1, 0.56)
+J.setRegion(1, vector(-1*currentdensity3, 0, 0))
+
+B_ext.add(maskout_31, 1)
+B_ext.add(maskout_32, 1)
+B_ext.add(maskout_33, 1)
+B_ext.add(maskout_34, 1)
+B_ext.add(maskin3, 1)
+saveas(B_ext, "oerstedreverse")
+
+Run(timereverse)
+
+
+
+
+//Reset B_ext field
+J.setRegion(1, vector(0, 0, 0))
+B_ext.add(maskout_11, 1)
+B_ext.add(maskout_12, 1)
+B_ext.add(maskout_13, 1)
+B_ext.add(maskout_14, 1)
+B_ext.add(maskin1, 1)
+Run(500e-12)
+
+
+
+
+
+
+
+
+//Fifth pulse
+pol.setRegion(1, 0.56)
+J.setRegion(1, vector(-1*currentdensity2, 0, 0))
+
+B_ext.add(maskout_21, 1)
+B_ext.add(maskout_22, 1)
+B_ext.add(maskout_23, 1)
+B_ext.add(maskout_24, 1)
+B_ext.add(maskin2, 1)
+saveas(B_ext, "oersted5")
+
+Run(time5)
+
+
+
+
+//Reset B_ext field
+J.setRegion(1, vector(0, 0, 0))
+B_ext.add(maskout_01, 1)
+B_ext.add(maskout_02, 1)
+B_ext.add(maskout_03, 1)
+B_ext.add(maskout_04, 1)
+B_ext.add(maskin0, 1)
+Run(500e-12)
+
+
+
+
+
+
+//Sixth pulse
+pol.setRegion(1, 0.56)
+J.setRegion(1, vector(-1*currentdensity2, 0, 0))
+
+B_ext.add(maskout_21, 1)
+B_ext.add(maskout_22, 1)
+B_ext.add(maskout_23, 1)
+B_ext.add(maskout_24, 1)
+B_ext.add(maskin2, 1)
+saveas(B_ext, "oersted6")
+
+Run(time6)
+
+
+
+
+//Reset B_ext field
+J.setRegion(1, vector(0, 0, 0))
+B_ext.add(maskout_01, 1)
+B_ext.add(maskout_02, 1)
+B_ext.add(maskout_03, 1)
+B_ext.add(maskout_04, 1)
+B_ext.add(maskin0, 1)
+Run(500e-12)
+
+
+
+
+
+
+
+//Seventh pulse
+pol.setRegion(1, 0.56)
+J.setRegion(1, vector(-1*currentdensity3, 0, 0))
+
+B_ext.add(maskout_31, 1)
+B_ext.add(maskout_32, 1)
+B_ext.add(maskout_33, 1)
+B_ext.add(maskout_34, 1)
+B_ext.add(maskin3, 1)
+saveas(B_ext, "oersted7")
+
+Run(time7)
+
+
+
+
+//Reset B_ext field
+J.setRegion(1, vector(0, 0, 0))
+B_ext.add(maskout_11, 1)
+B_ext.add(maskout_12, 1)
+B_ext.add(maskout_13, 1)
+B_ext.add(maskout_14, 1)
+B_ext.add(maskin1, 1)
+Run(500e-12)
+
+
+
+
+
+
+
+//Eighth pulse
+pol.setRegion(1, 0.56)
+J.setRegion(1, vector(-1*currentdensity3, 0, 0))
+
+B_ext.add(maskout_31, 1)
+B_ext.add(maskout_32, 1)
+B_ext.add(maskout_33, 1)
+B_ext.add(maskout_34, 1)
+B_ext.add(maskin3, 1)
+saveas(B_ext, "oersted8")
+
+Run(time8)
+
+
+
+
+//Reset B_ext field
+J.setRegion(1, vector(0, 0, 0))
+B_ext.add(maskout_11, 1)
+B_ext.add(maskout_12, 1)
+B_ext.add(maskout_13, 1)
+B_ext.add(maskout_14, 1)
+B_ext.add(maskin1, 1)
+Run(500e-12)
+
+
+
+
