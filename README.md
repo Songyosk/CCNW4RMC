@@ -29,8 +29,7 @@ The simulations are developed using mumax<sup>3</sup>, a GPU-accelerated microma
  
 <br />
 
-(i) Selective reversal of single nanoisland in two-island system 
-
+(i) Selective reversal of single nanoisland in two-island system <br />
 (script name: smallv4_2; link - https://youtu.be/FiKxKtBjk7k)
 
 Description: Right-hand nanoisland in a two-nanoisland system is magnetically reversed while left-hand nanoisland is not reversed as the c-DW does not traverse it, demonstrating the local selectivity of the reversal method. 
