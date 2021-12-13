@@ -10,7 +10,7 @@ Nature Communications Physics <br />
 </p>
 
 <p align="center">
-*Note: all simulations were performed on the Imperial College London Research Computing Service*
+Note: all simulations were performed on the Imperial College London Research Computing Service*
 </p>
 
 ----
