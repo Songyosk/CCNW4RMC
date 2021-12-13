@@ -74,7 +74,9 @@ https://user-images.githubusercontent.com/56391325/145803371-2e65dfc7-1e37-4fd7-
 
 Description: Reversal method employing varying current-density pulses to achieve combination of 'skip' and 'write' c-DW traversal events in a four-island system.  Nanowire is in h = 20 nm fullyselective mode. Starting from a uniformly-magnetised initial state, a combination of a single 'skip' followed by three 'write'  pulses are used to prepare an arbitrary magnetisation state. The final state corresponds to a 'single gate' case, gated at the right-hand island.
 
-https://user-images.githubusercontent.com/56391325/145830821-e66a2ee1-a825-45de-8a3e-6a6655ea9c37.mp4
+https://user-images.githubusercontent.com/56391325/145861801-ef08abe7-32c4-450e-9c86-3c179786e565.mp4
+
+
 
 
 <br />
