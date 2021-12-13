@@ -26,12 +26,12 @@ Figure 1: (a) Representation of the ferromagnetic domain wall-carrying ‘contro
 
 ## Simulations
 
-The simulations are developed using mumax<sup>3<sup>, a GPU-accelerated micromagnetic simulation program developed at the DyNaMat group of Prof. Van Waeyenberge at Ghent University. This is availabe at https://mumax.github.io/. In addition, we used the Object Oriented MicroMagnetic Framework (OOMMF) to generate two-dimensional simulations, some of which are presented as figures in the paper. See more detail at https://math.nist.gov/oommf/.
+The simulations are developed using mumax<sup>3</sup>, a GPU-accelerated micromagnetic simulation program developed at the DyNaMat group of Prof. Van Waeyenberge at Ghent University. This is availabe at https://mumax.github.io/. In addition, we used the Object Oriented MicroMagnetic Framework (OOMMF) to generate two-dimensional simulations, some of which are presented as figures in the paper. See more detail at https://math.nist.gov/oommf/.
 
 
 Below are the simulations that were generated using the scripts herein.
   
-() Reversal process 
+(i) Reversal process 
 
 https://user-images.githubusercontent.com/56391325/145804860-54de1143-a633-48ad-b37b-a8657a8fae2d.mp4
 
@@ -39,7 +39,7 @@ https://user-images.githubusercontent.com/56391325/145804860-54de1143-a633-48ad-
   smallv4_2.mp4 (https://youtu.be/FiKxKtBjk7k)
   
  
-(i) Selective writing - Reversing all the magnetisation states of the nanoislands
+(ii) Selective writing - Reversing all the magnetisation states of the nanoislands
 
 https://user-images.githubusercontent.com/56391325/145732471-5ed2b45b-24d0-443d-9188-ded5e096215c.mp4
 
@@ -47,7 +47,7 @@ https://user-images.githubusercontent.com/56391325/145732471-5ed2b45b-24d0-443d-
 
   
   
-(ii) Selective writing - Skipping pass all the nanoislands
+(iii) Selective writing - Skipping pass all the nanoislands
 
 https://user-images.githubusercontent.com/56391325/145803371-2e65dfc7-1e37-4fd7-9318-22d4ce2deddd.mp4
 
@@ -55,7 +55,7 @@ Skipv12  (https://youtu.be/4WkLE20AFM4)
   
 
   
-(iii) 
+(ivx) 
 
 
 
