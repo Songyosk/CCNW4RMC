@@ -119,10 +119,12 @@ Figure 2: Close-proximity and fully selective reversal modes. (a)–(c) Close-pr
 ## Modelling Approximation
 In our simulations, we have approximated the current-carrying wire as an infinitely-long cylindrical nanowire, as suppose to a cuboid nanowire. The rationale for such an approximation is due to the simplicity in modelling the magnetic field, which exhibit a circular pattern around a cylindrical nanowire. We have justified this approximation by computing the profile of the magnetic field strength experienced by the nanoislands, as shown below. 
 
-![MW3](_figures_/approximate.png)
+![MW3](_figures_/cross_section.png) 
+Figure 3: Field profiles of current-carrying cylindrical and cuboid nanowires. The line joining Points A and B indicate the position of the nanoisland. 
 
-Figure 3: Field profiles of current-carrying cylindrical and cuboid nanowires. Field profile experienced by a nanoisland that is positioned h = 10 nm below an infinitely long cylinder and cuboid. There is a small discrepancy of 0.15 × 10<sup>4</sup> Am<sup>-1</sup> around x = 0, which can be minimized by adjusting the value of the current density.
+![MW4](_figures_/approximate.png)
 
+Figure 4: Field profile experienced by a nanoisland that is positioned h = 10 nm below an infinitely long cylinder and cuboid. There is a small discrepancy of 0.15 × 10<sup>4</sup> Am<sup>-1</sup> around x = 0, which can be minimized by adjusting the value of the current density.
 
 
 ## Files
