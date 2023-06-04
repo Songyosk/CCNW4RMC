@@ -1,4 +1,5 @@
 # Current-Controlled Nanomagnetic Writing for Reconfigurable Magnonic Crystals (CCNW4RMC)
+[![DOI](https://zenodo.org/badge/437659911.svg)](https://zenodo.org/badge/latestdoi/437659911)
 ----
 
 <p align="center">
