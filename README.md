@@ -159,5 +159,5 @@ Gartside, J.C., Jung, S.G., Yoo, S.Y. et al. Current-controlled nanomagnetic wri
 
 
 ## License
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://choosealicense.com/licenses/mit/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
